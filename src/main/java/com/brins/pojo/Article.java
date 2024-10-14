@@ -3,6 +3,7 @@ package com.brins.pojo;
 /**
  * Created by lipeilin on 2024/1/20.
  */
+import com.brins.anno.State;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -24,6 +25,7 @@ public class Article {
     @NotEmpty
     @URL
     private String coverImg;        // 对应 'cover_img'
+    @State
     private String state;           // 对应 'state'
     @NotNull
     private Integer categoryId;        // 对应 'category_id', 外键引用
