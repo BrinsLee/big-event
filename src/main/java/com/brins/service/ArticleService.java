@@ -22,4 +22,11 @@ public interface ArticleService {
      * @return
      */
     PageBean<Article> list(Integer pageNum, Integer pageSize, String categoryId, String state);
+
+    /**
+     * 获取文章详情
+     * @param id
+     * @return
+     */
+    Article detail(Integer id);
 }

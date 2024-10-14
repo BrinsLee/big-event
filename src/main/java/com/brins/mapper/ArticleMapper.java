@@ -1,8 +1,7 @@
 package com.brins.mapper;
 
 import com.brins.pojo.Article;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -31,4 +30,15 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> list(Integer userId, String categoryId, String state);
+
+    /**
+     * 获取文章详情
+     *
+     * @param userId
+     * @param id
+     * @return
+     */
+    @Select("select * from article where create_user = #{userId} and id = #{id};")
+    @Results({@Result(property = "coverImg", column = "cover")})
+    Article detail(Integer userId, Integer id);
 }

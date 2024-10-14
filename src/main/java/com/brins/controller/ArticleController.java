@@ -52,4 +52,11 @@ public class ArticleController {
         return Result.success(pageBean);
     }
 
+    @GetMapping("/detail")
+    public Result<Article> detail(@RequestParam Integer id) {
+        Article article = articleService.detail(id);
+        System.out.println(article.getId() + " " + article.getTitle() + " id " + id);
+        return Result.success(article);
+    }
+
 }
