@@ -2,6 +2,7 @@ package com.brins.controller;
 
 import com.auth0.jwt.JWT;
 import com.brins.pojo.Article;
+import com.brins.pojo.PageBean;
 import com.brins.pojo.Result;
 import com.brins.service.ArticleService;
 import com.brins.utils.JwtUtil;
@@ -40,6 +41,15 @@ public class ArticleController {
     public Result add(@RequestBody @Validated Article article) {
         articleService.add(article);
         return Result.success();
+    }
+
+    @GetMapping
+    public Result<PageBean<Article>> list(Integer pageNum, Integer pageSize,
+                                          @RequestParam(required = false) String categoryId,
+                                          @RequestParam(required = false) String state
+    ) {
+        PageBean<Article> pageBean = articleService.list(pageNum, pageSize, categoryId, state);
+        return Result.success(pageBean);
     }
 
 }

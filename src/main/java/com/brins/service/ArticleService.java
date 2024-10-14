@@ -1,6 +1,7 @@
 package com.brins.service;
 
 import com.brins.pojo.Article;
+import com.brins.pojo.PageBean;
 
 /**
  * Created by lipeilin on 2024/10/14.
@@ -11,4 +12,14 @@ public interface ArticleService {
      * @param article
      */
     void add(Article article);
+
+    /**
+     * 条件分类列表查询
+     * @param pageNum
+     * @param pageSize
+     * @param categoryId
+     * @param state
+     * @return
+     */
+    PageBean<Article> list(Integer pageNum, Integer pageSize, String categoryId, String state);
 }
