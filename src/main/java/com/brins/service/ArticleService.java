@@ -29,4 +29,16 @@ public interface ArticleService {
      * @return
      */
     Article detail(Integer id);
+
+    /**
+     * 更新文章
+     * @param article
+     */
+    void update(Article article);
+
+    /**
+     * 删除文章
+     * @param id
+     */
+    void delete(Integer id);
 }

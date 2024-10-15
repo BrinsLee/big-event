@@ -41,4 +41,19 @@ public interface ArticleMapper {
     @Select("select * from article where create_user = #{userId} and id = #{id};")
     @Results({@Result(property = "coverImg", column = "cover")})
     Article detail(Integer userId, Integer id);
+
+    /**
+     * 更新文章
+     * @param article
+     */
+    @Update("update article set title = #{title}, content = #{content}, " +
+            "cover = #{coverImg}, state = #{state}, category_id = #{categoryId}, update_time = #{updateTime} where id = #{id}")
+    void update(Article article);
+
+    /**
+     * 删除文章
+     * @param id
+     */
+    @Delete("delete from article where id=#{id};")
+    void delete(Integer id);
 }
