@@ -38,4 +38,10 @@ public class JwtTest {
         Map<String, Claim> claims = decodedJWT.getClaims();
         System.out.println(claims.get("user"));
     }
+
+    @Test
+    public void generate() {
+        String id = String.valueOf(((Math.random() * 9 + 1) * 100000));
+        System.out.println(id);
+    }
 }
